@@ -3,7 +3,7 @@
 
 #include <stddef.h>
 
-/* Первый этап СНИРС. Общий интерфейс C11. Правила приведены в scanner_spec.txt. */
+/* Первый этап СНИРС. Общий интерфейс C11. Правила приведены в spec/scanner_spec.txt. */
 typedef enum {
     TOK_EOF, TOK_ERROR,
     TOK_IDENT, TOK_NUMBER,

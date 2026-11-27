@@ -1,0 +1,530 @@
+abs(x) := if x>0 then x else -x end if
+
+MPrime := M+SPrime // новый нетерминал
+for (alpha to beta) in Pi do
+    (alpha to beta) := (alpha[SPrime/S] to beta[SPrime/S]) // замена всех вхождений S вхождениями S′
+end for
+PiPrime := Pi+(S to SPrime) // новое правило для аксиомы
+
+func D ( // класс и имя алгоритма
+omega: array [1 to n] of char // параметр --- исходная цепочка
+) : bool := // тип возвращаемого значения
+d := 0 // локальная переменная --- счётчик скобок
+for i from 1 to n do
+    if omega[i] = leftParen then d := d+1 end if , if omega[i] = rightParen then d := d-1 end if
+    if d < 0 then return false end if
+end for
+return d = 0
+
+func balance(omega: array [1 to n] of char) : bool
+d := 0 // счётчик скобок
+for i from 1 to n do
+    if omega[i] = leftParen then d := d+1 end if
+    if omega[i] = rightParen then d := d-1 end if
+    if d < 0 then return false end if
+end for
+return d = 0
+
+iter nat()
+n := 0
+while true do yield n := n+1 end while
+
+x := 1/0; return x
+
+N2M (n:N): M := k := 0; for a in M do k := k+1; if k=n then return a end if end for
+
+M2N (x: M): N := k := 0; for a in M do k := k+1; if a=x then return k end if end for
+
+R (n:N): bool := k := 0; while true do k := k+1; x := N2M(k); y := N2MBar(k);
+
+if x = n then return true end if ; if y = n then return false end if ; end while
+
+D(p:N) := if K Query (p) then while true do skip end while else exit end if
+
+iter nat()
+n := 0
+while true do yield n := n+1 end while
+
+iter G()
+for t from 1 to infinity do
+    for x from 0 to t do
+        if done(s,x,t) then yield x end if
+    end for
+end for
+
+func S(x:N0):bool
+for y in G() do
+    if y = x then return true end if
+end for
+fail // перечислитель исчерпался
+
+func f(n:N0):N0
+V := out(g,epsilon,n) // выдано за n шагов
+if V = epsilon then return y power * end if
+return V[size(V)]
+
+func R(x:N0):bool
+for n from 0 to infinity do
+    if f1(n) = x then return true end if
+    if f2(n) = x then return false end if
+end for
+
+func D(p:N0):bool
+if K Query (p) then fail end if
+return true
+
+func T(omega:Sigma power *):Gamma power *
+q := q0; lambda := epsilon; rho := omega // лента λρ
+while q not in F do
+    if rho=epsilon then rho := blank end if
+    (q,b,d) := delta(q,rho[1]) // такт
+    rho := brho[2 to size(rho)] // печать
+    if d=R then lambda := lambdarho[1]; rho := rho[2 to size(rho)] end if
+    if d=L then rho := lambda[size(lambda)]rho; lambda := lambda[1 to size(lambda)-1] end if
+end while
+return lambdarho
+
+func A(omega:B power *):B power *
+i := 1
+while i <= n do
+    if betai subset omega then
+    omega := lsubst(omega,betai,gammai)
+    if fin(i) then return omega end if
+    i := 1 // сначала
+    else i := i+1 end if
+end while
+return omega // нет применимых
+
+func nA(a : A) : 1 to n
+for i from 1 to n do
+    if alphabetaA[i]=a then return i end if
+end for
+
+func aA(i : 1 to n) : A
+return alphabetaA[i]
+
+func nA(alpha: A power *) : N0
+i := 0
+for j from 1 to size(alpha) do
+    i := n * i +nA(alpha[j])
+end for
+return i
+
+func aA(i : N0) : A power *
+alpha := epsilon
+while i>0 do
+    if i mod n =0 then a := aA(n); i := i-n
+    else a := aA(i mod n) end if
+    alpha := a alpha; i := i div n
+end while
+return alpha
+
+Q : queue of (M where Sigma) power * // очередь секвенциальных форм
+word(S) to Q // поместить в очередь аксиому
+while Q != emptySet do
+    phi takeFrom Q // взять из очереди
+    if phi in Sigma power * then yield phi end if // очередное слово языка
+    for (alpha to beta) in Pi do
+        for psi in S (phi, alpha, beta) do
+            psi to Q // поместить ψ в очередь
+        end for
+    end for
+end while
+
+proc C(n:N)
+x := d1(n) // при n∉ N не кончается
+for a in W do yield a end for // перечислить W
+end proc
+
+N(n:N) : bool := return not R(Gn)
+
+require Regulyarnaya levolineynaya grammatika G= tuple(M, Sigma, Pi, S)
+ensure Avtomatnaya levolineynaya grammatika GPrime= tuple(MPrime, Sigma, PiPrime,S)
+MPrime := M; PiPrime := emptySet // r= A →α или r= A→Bα
+for r in Pi do
+    if size(alpha)=1 then PiPrime := PiPrime union r; next for r end if // переносим без изменений
+    n := size(alpha)-1 // количество новых нетерминалов
+    MPrime := MPrime union new An // добавляем нетерминал A_n
+    PiPrime := PiPrime union (A to Analpha[n+1]) // добавляем правило A→A_na_{n+1}
+    for i from n-1 to 1 do
+        MPrime := MPrime union new Ai // добавляем нетерминал A_i
+        PiPrime := PiPrime union (AAt(i+1) to Ai alpha[i+1]) // добавляем правило A_{i+1}→A_i a_{i+1}
+    end for
+    if r=A to alpha then PiPrime := PiPrime union (A1 to alpha[1]) // заключительное правило
+    else PiPrime := PiPrime union (A1 to Balpha[1]) end if // незаключительное правило
+end for
+
+require vkhodnoe slovo alpha=a1a2 ellipsis an, istochnik H= tuple(HBar,S,T,delta)
+X := epsilon-closure(S)
+for i from 1 to n do
+    Y := emptySet
+    for q in X do
+        Y := Y union set(p in HBar where tuple(q,p) in H and V( tuple(q,p))=ai)
+    end for
+    X := epsilon-closure(Y)
+end for
+return X intersect T != emptySet
+
+input: s
+Rvalid := validPattern // ^(?: 31\.(?:01|03|05|07|08|10|12)\.\d{4}
+// |30\.(?:01|03|04|05|06|07|08|09|10|11|12)\.\d{4}
+// |29\.(?:01|03|04|05|06|07|08|09|10|11|12)\.\d{4}
+// |(?:0[1-9]|1\d|2[0-8])\.(?:0[1-9]|1[0-2])\.\d{4})$
+Rextract := extractPattern // ^0?(\d+)\.0?(\d+)\.(\d{4})$
+Mon[1 to 12] := [Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec]
+if match(Rvalid, s) then
+    (d, mstr, y) := capture(Rextract, s)
+    m := toInt(mstr)
+    print y, Mon[m], d
+else
+    print noMatch
+end if
+
+omega: array [1 to n] of char // исходная цепочка
+d := 0 // счётчик скобок
+for i from 1 to n do
+    if omega[i]=leftParen then d := d+1 end if
+    if omega[i]=rightParen then d := d-1 end if
+    if d<0 then return false end if
+end for
+return d=0
+
+func prefix (alpha, beta: (M where Sigma) power *): bool // терминальный префикс α есть префикс β
+iter subst (alpha, beta, gamma: (M where Sigma) power *) // итератор множества подстановок α[β→γ]
+
+omega: (M where Sigma) power * // исходная цепочка
+Q : queue of (M where Sigma) power * // очередь секвенциальных форм
+word(S) to Q // поместить в очередь аксиому
+while true do
+    if Q= emptySet then return false end if // ω∉L(G)
+    phi takeFrom Q // взять из очереди
+    for (alpha to beta) in Pi do
+        for psi in subst (phi, alpha, beta) do
+            if psi=omega then return true end if // ω∈L(G)
+            if prefix(psi, omega) then psi to Q end if // поместить ψ в очередь
+        end for
+    end for
+end while
+
+input:
+KS-grammatika G= tuple(N,Sigma,P,E)
+potok tokenov a1 ellipsis am in Sigma, eof
+output: accept / reject
+
+parse(tokens):
+advanceToFirstToken()
+parseE(tokens)
+if nexttoken = eof then
+    ACCEPT
+else
+    REJECT
+end if
+
+parseE(tokens): // E →T E'
+parseT(tokens)
+while nexttoken = + do
+    consume(+)
+    parseT(tokens)
+end while
+
+parseT(tokens): // T →F T'
+parseF(tokens)
+while nexttoken = * do
+    consume(*)
+    parseF(tokens)
+end while
+
+parseF(tokens): // F →(E)∣num
+if nexttoken = num then
+    consume(num)
+else if nexttoken = leftParen then
+    consume(leftParen)
+    parseE(tokens)
+    consume(rightParen)
+end if
+
+omega: array [1 to n] of Sigma // исходная цепочка
+i := 1 // номер очередного символа входной цепочки
+procedure match(a:Sigma)
+if i <= n and omega[i]=a then i := i+1 else error end if
+
+procedure E
+if i <= n and omega[i] in set(a,b,c) then i := i+1
+else if i <= n and omega[i]=+ then match(+); E; E
+else if i <= n and omega[i]=* then match(*); E; E
+else error end if
+
+procedure E
+T; EPrime
+
+procedure EPrime
+if i <= n and omega[i]=plusSign then
+match(plusSign); T; EPrime
+else skip end if // E'→ε
+
+procedure T
+F; TPrime
+
+procedure TPrime
+if i <= n and omega[i]=starSign then
+match(starSign); F; TPrime
+else skip end if // T'→ε
+
+procedure F
+if i <= n and omega[i] in set(a,b,c) then i := i+1
+else if i <= n and omega[i]=leftParen then
+match(leftParen); E; match(rightParen)
+else error end if
+
+for kazhdogo simvola x vo vkhodnoy stroke:
+    if x is operand (a, b, c, ellipsis ), then push(V, x);
+    if x is operatsiya (+, *, ellipsis ), then:
+        while O != epsilon and prior(top(O)) >= prior(x), reduce();
+        push(O, x);
+    if x = leftParen, then push(O, x);
+    if x = rightParen, then:
+        while top(O) != leftParen, reduce();
+        pop(O) // удалить левую скобку.
+while O != epsilon, reduce()
+return top(V)
+
+initialize:
+for i = 1 ellipsis n: P[i,i] := set( A where A to ai in R )
+fillByLength:
+for dliny podstroki l = 2 ellipsis n:
+    for nachalnoy pozitsii i = 1 ellipsis n - l + 1:
+        j := i + l - 1
+        P[i,j] := unionAll set(k=i) power set(j-1) set( A where A to BC in R, B in P[i,k], C in P[k+1,j] )
+
+omega: array [1 to n] of char // исходная цепочка
+V,O : stack // стеки операндов и операций
+for i from 1 to n do
+    x := omega[i]
+    if x in set(a,b,c, ellipsis ) then x to V end if
+    if x in set(plusSign,starSign) then pushop(x) end if
+end for
+while O != emptySet do reduce end while
+return Top(V)
+
+procedure pushop(x)
+while O != emptySet and Top(O)
+hasPriorityAtLeast(x)
+do reduce end while
+x to O
+
+procedure reduce
+operation takeFrom O // извлечь операцию
+r takeFrom V // правый операнд
+l takeFrom V // левый операнд
+( operation (l)(r)) to V // новое поддерево
+
+omega=a1 ellipsis an // исходная цепочка
+for i from 1 to n do
+    P[i,i] := set(A in M where A to ai in Pi)
+end for
+for l from 2 to n do
+    for i from 1 to n-l+1 do
+        j := i+l-1
+        P[i,j] := emptySet
+        for k from i to j-1 do
+            X := set(A where A to BC in Pi, B in P[i,k], C in P[k+1,j])
+            P[i,j] := P[i,j] union X
+        end for
+    end for
+end for
+return S in P[1,n]
+
+if x > y then swap(x, y) endif
+if y > z then swap(y, z) endif
+if x > y then swap(x, y) endif
+
+S2(a,b) := if a > b then swap(a, b) endif
+
+if x > y then swap(x, y) endif
+if y > z then swap(y, z) endif
+if x > y then swap(x, y) endif
+
+S2(a,b) := if a > b then swap(a, b) endif
+
+require vkhodnoe slovo alpha: array [1 to s] of A, nachalnoe sostoyanie q in Q;
+ensure vykhodnoe slovo beta: array [1 to s] of B
+for i from 1 to s do
+    beta[i]:=lambda[q,alpha[i]] // выдать очередной выходной символ
+    q:=delta[q,alpha[i]] // перейти в следующее состояние
+end for
+
+require alpha: array [1 to s] of A, q in Q;
+ensure beta: array [1 to s] of B
+for i from 1 to s do
+    q:=delta(q,alpha[i]) // переходим в состояние
+    beta[i]:=mu(q) // выдаем его пометку
+end for
+
+alpha := epsilon
+while true do
+    yield alpha
+    alpha := alpha+ word(aba)
+end while
+
+alpha := epsilon; n := 1
+while true do
+    alpha := alpha+word(a)
+    yield alpha
+    for i from 1 to n do
+        alpha := alpha+word(b)
+        yield alpha
+    end for
+    n := n+1
+end while
+
+k := 1
+while true do
+    simulate(M, omega, k)
+    if halted(M, k) then
+        stop
+    end if
+    yield a power k b power k
+    k := k+1
+end while
+
+require Levolineynaya avtomatnaya grammatika G= tuple(N, T, R,I)
+ensure Avtomat-raspoznavatel S= tuple(T, Q, delta, q0, F), raspoznayushchiy yazyk L(G)
+Q := N union set(q0) union set(qBar) // по определению
+for r in R do
+    if r=A to a then
+        delta(q0,a) := delta(q0,a) union A // добавляем переход q_0⟶[a]A
+    else
+        delta(B,a) := delta(B,a) union A // добавляем переход B ⟶[a]A
+    end if
+end for
+for q in Q do
+    for a in T do
+        if not exists delta(q,a) then
+            delta(q,a) := qBar // недопустимые символы
+        end if
+    end for
+end for
+F := set(I)
+
+require Levolineynaya avtomatnaya grammatika G= tuple(N,T,R,I)
+ensure Avtomat-raspoznavatel S= tuple(T,Q,delta,q0,F), raspoznayushchiy yazyk L(G)
+Q := N union set(q0,qBar)
+for kazhdogo pravila r in R do
+    if r=A to a then
+        delta(q0,a) := delta(q0,a) union set(A)
+    else
+        delta(B,a) := delta(B,a) union set(A) // для правила A→Ba
+    end if
+end for
+for kazhdogo q in Q and kazhdogo a in T do
+    if not exists delta(q,a) then
+        delta(q,a) := set(qBar)
+    end if
+end for
+F := set(I)
+
+require DKA S= tuple(A, Q, delta, q0, F)
+ensure Minimalnyy ekvivalentnyy DKA
+P := set(F, Q difference F) // начальное разбиение
+W := set(F, Q difference F) // очередь разделителей
+while W != emptySet do
+    C := pop(W)
+    for all a in A do
+        X := set(q in Q where delta(q, a) in C) // предшественники C
+        for all D in P : (D intersect X != emptySet ) and (D difference X != emptySet ) do
+            D1 := D intersect X; D2 := D difference X
+            replace(P, D, D1, D2)
+            add(W, smaller(D1, D2))
+        end for
+    end for
+end while
+buildDFA(P)
+
+require Avtomat S= tuple(A, Q, B, delta, lambda);
+ensure Razbienie G mnozhestva Q
+C0 := Q/ equiv lambda // начальное разбиение
+for i from 1 to size(Q) do
+    Ci := emptySet // инициализация очередного разбиения
+    for K in CAt(i-1) do
+        Ci := Ci union K/ equiv delta power i // измельчение блока разбиения
+    end for
+    if Ci = CAt(i-1) then
+        exit // прекращение процесса
+    end if
+end for
+
+c := 0 // c=|α|_p - |α|_g
+for s in omega do
+    if s not in set(p, g) then return false end if // чужой символ
+    if s=p then c := c+1 else c := c-1 end if // изменение счётчика
+    if c<0 then return false end if // нарушено условие
+end for
+return true // ω∈L_{WR}
+
+require vkhodnoe slovo alpha: array [1 to s] of 1 to m
+ensure vykhodnoe slovo beta: array [1 to s] of 1 to k
+q:=q1 // начальное состояние
+for i from 1 to s do
+    a:=alpha[i] // очередной входной символ
+    beta[i]:=lambda[q,a] // очередной выходной символ
+    q:=delta[q,a] // новое состояние
+end for
+
+require Yazyk L, zadannyy tablitsey perekhodov delta: array [1 to k, 1 to m] of 1 to n; nachalnoe sostoyanie q1 in 1 to k; podmnozhestvo zaklyuchitelnykh sostoyaniy F: set of 1 to n; vkhodnoe slovo alpha: array [1 to s] of 1 to m
+ensure true esli alpha in L, false v protivnom sluchae
+q:= q1 // начальное состояние
+for i from 1 to s do
+    q:=delta[q, alpha[i]] // новое состояние
+end for
+return q in F // ответ распознавателя
+
+case q // ветвление по текущему состоянию
+q1: case a // ветвление по входному символу
+a1: b := bi1 // выходной символ
+q:= qj1 // новое состояние
+a2: b:= bi2
+q:= bj2
+ellipsis
+end case
+q2: case a
+ellipsis
+end case
+
+require Tekst T: array [1 to n] of char, obrazets P: array [1 to m] of char
+ensure Mnozhestvo pozitsiy, s kotorykh nachinayutsya vkhozhdeniya P v T
+for s from 1 to n-m+1 do
+    for i from 1 to m do
+        if P[i] != T[s+i] then
+            next for s // нет совпадения --- переходим к следующей позиции
+        end if
+    end for
+    yield s // нашли вхождение
+end for
+
+require Tekst T: array [1 to n] of char, obrazets P: array [1 to m] of char
+ensure Mnozhestvo pozitsiy, s kotorykh nachinayutsya vkhozhdeniya P v T if P ne vkhodit v T, then algoritm nichego ne vozvrashchaet
+q := 0 // начальное состояние
+for i from 1 to n do
+    q := delta(q, T[i]) // следующее состояние
+    if q=m then
+        yield i-m // нашли вхождение
+    end if
+end for
+
+require Obrazets P: array [1 to m] of A
+ensure Funktsiya perekhodov delta: array [0 to m,A] of 0 to m
+for q from 0 to m do
+    for a in A do
+        k:= min(m+1, q+2) // наибольшее возможное k
+        repeat
+            k:= k-1 // пытаемся уменьшить k
+        until P[1 to k]=P[1 to q]+a or k = 0
+        delta[q,a]:=k
+    end for
+end for
+
+if x>y then swap(x, y) endif
+if y>z then swap(y, z) endif
+if x>y then swap(x, y) endif
+
+S2(a,b) := if a>b then swap(a, b) endif
