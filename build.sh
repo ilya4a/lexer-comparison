@@ -50,8 +50,4 @@ fi
 cmake -S . -B "$build_dir" -DCMAKE_BUILD_TYPE="$configuration"
 cmake --build "$build_dir" --target "$target"
 
-if [ "$target" = scanner_tests ]; then
-    cmake -E chdir "$build_dir" ctest --output-on-failure
-else
-    "$build_dir/$target"
-fi
+cmake -E chdir "$build_dir" ctest --output-on-failure -R '^scanner_tests$'

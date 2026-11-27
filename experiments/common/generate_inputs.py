@@ -1,8 +1,7 @@
-"""Deterministic experiment-B corpus and independent, exact expected token streams."""
+"""Deterministic workloads shared by A and B, with independent expected tokens."""
 
 import argparse
 import hashlib
-import json
 import re
 import struct
 from collections import Counter
@@ -62,28 +61,41 @@ def generate(destination):
     destination.mkdir(parents=True, exist_ok=True)
     ids = token_ids()
     textbook = (ROOT / "pseudocode/pseudocode.txt").read_bytes()
-    # run.txt is a command, not scanner input. Preserve the already translated material.
+    mib = 1024 * 1024
     specs = [
-        ("textbook", "textbook", textbook, 1, "pseudocode/pseudocode.txt, unchanged"),
-        ("textbook_long", "textbook", textbook + b"\n", (1048576 + len(textbook)) // (len(textbook) + 1), "whole copies of textbook, with one extra LF per copy"),
-        ("prefix_ifx", "I_prefix", b"ifx ", 262144, "b'ifx ' * 262144"),
-        ("prefix_abx", "I_prefix", b"abx ", 262144, "b'abx ' * 262144"),
-        ("ident_3", "II_length", b"aaa ", 262144, "b'aaa ' * 262144"),
-        ("ident_15", "II_length", b"a" * 15 + b" ", 65536, "(b'a'*15 + b' ') * 65536"),
-        ("skip_spaces", "III_skip", b"x       \n", 131072, "b'x       \\n' * 131072"),
-        ("skip_comments", "III_skip", b"x//aaaaa\n", 131072, "b'x//aaaaa\\n' * 131072"),
+        ("textbook", "textbook", textbook, 1, 0, "pseudocode/pseudocode.txt"),
+        ("prefix_abx", "prefix", b"abx ", mib // 4, 0, "abx only"),
+        ("prefix_abx_ifx", "prefix", b"abx ifx ", mib // 8, 0, "alternating abx / ifx"),
+        ("prefix_ifx", "prefix", b"ifx ", mib // 4, 0, "ifx only"),
+        ("prefix_abcde2", "prefix", b"abcde2 ", mib // 7, 0, "abcde2 only"),
+        ("prefix_while2", "prefix", b"while2 ", mib // 7, 0, "while2 only"),
     ]
+    for label, byte in (("ident", b"a"), ("number", b"1")):
+        for length in (2, 8, 32, 128):
+            block = byte * length + b" "
+            copies, padding = divmod(mib, len(block))
+            specs.append((f"{label}_{length}", "length", block, copies, padding,
+                          f"{length} copies of {byte.decode()} and one space per block"))
+    spaces = b"x       \n"
+    comment = b"x//aaaaa\n"
+    long_comment = b"x\n" * 63 + b"x//" + b"a" * (7 * 64 - 2) + b"\n"
+    specs.extend([
+        ("skip_spaces", "skip", spaces, 131072, 0, "x + seven spaces + LF"),
+        ("skip_half", "skip", spaces + comment, 65536, 0, "alternating space and comment blocks"),
+        ("skip_comments", "skip", comment, 131072, 0, "x + //aaaaa + LF"),
+        ("skip_long_comments", "skip", long_comment, 2048, 0, "one long comment per 64 identifiers"),
+    ])
     for copies in (2048, 32768, 524288):
-        specs.append((f"mixed_{copies}", "IV_size", b"if x:=15 then return x end if\n", copies,
-                      f"b'if x:=15 then return x end if\\n' * {copies}"))
+        specs.append((f"mixed_{copies}", "size", b"if x:=15 then return x end if\n", copies,
+                      0, "if x:=15 then return x end if + LF"))
     manifest, entries = [], []
-    for name, family, block, copies, recipe in specs:
+    for name, family, block, copies, padding, recipe in specs:
         local = scan_reference(block)
         data_path = destination / f"{name}.bin"
         expected_path = destination / f"{name}.tokens"
-        data_path.write_bytes(block * copies)
+        data_path.write_bytes(block * copies + b" " * padding)
         block_size = len(block)
-        size = block_size * copies
+        size = block_size * copies + padding
         with expected_path.open("wb") as expected:
             buffer = bytearray()
             for i in range(copies):
@@ -99,21 +111,22 @@ def generate(destination):
         token_bytes = sum(end - begin for _, begin, end in local) * copies
         entries.append({
             "name": name, "family": family, "recipe": recipe, "block_bytes": block_size,
-            "copies": copies, "bytes": size, "tokens": len(local) * copies,
-            "lines": (block.count(b"\n") * copies + (not block.endswith(b"\n"))),
+            "copies": copies, "padding": padding, "bytes": size, "tokens": len(local) * copies,
             "sha256": sha256(data_path), "expected_sha256": sha256(expected_path),
             "kind_counts": {kind: count * copies for kind, count in sorted(histogram.items())},
             "skip_byte_fraction": 1 - token_bytes / size,
-            "source": "pseudocode/pseudocode.txt" if family == "textbook" else "experiment_b_guide.txt section 6",
+            "token_lengths": dict(sorted(Counter(end - begin for _, begin, end in local).items()))
+                if family == "textbook" else {},
         })
-        manifest.append("\t".join((name, family, data_path.resolve().as_posix(), expected_path.resolve().as_posix())))
-        print(f"Prepared {name}: {size} bytes, {len(local) * copies} tokens", flush=True)
-    # In the controlled pairs the complete lexical result, including EOF, is identical.
+        manifest.append("\t".join((name, family, data_path.resolve().as_posix(),
+                                    expected_path.resolve().as_posix(), entries[-1]["sha256"])))
     by_name = {entry["name"]: entry for entry in entries}
-    for first, second in (("prefix_ifx", "prefix_abx"), ("skip_spaces", "skip_comments")):
-        assert by_name[first]["expected_sha256"] == by_name[second]["expected_sha256"]
+    for first, second in (("prefix_abx", "prefix_abx_ifx"), ("prefix_abx", "prefix_ifx"),
+                          ("prefix_abcde2", "prefix_while2"), ("skip_spaces", "skip_half"),
+                          ("skip_spaces", "skip_comments")):
+        if by_name[first]["expected_sha256"] != by_name[second]["expected_sha256"]:
+            raise ValueError(f"Control pair differs: {first}, {second}")
     (destination / "manifest.tsv").write_text("\n".join(manifest) + "\n", encoding="utf-8", newline="\n")
-    (destination / "manifest.json").write_text(json.dumps(entries, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return entries
 
 

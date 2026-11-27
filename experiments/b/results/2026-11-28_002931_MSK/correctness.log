@@ -1,2 +1,0 @@
-$ C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_b\experiment_b_checks.exe
-Passed: 81685 inputs against independent reference; 15616 state/byte pairs; all transitions, terminal tokens, C-compatible interface, independent instances, and guarded buffers.

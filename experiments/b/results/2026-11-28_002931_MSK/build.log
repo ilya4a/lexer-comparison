@@ -1,7 +1,0 @@
-$ "C:\Program Files\CMake\bin\cmake.EXE" --build C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_b --config Release --target experiment_b experiment_b_checks --parallel 2
-[ 40%] Built target snirs_dfa
-[ 60%] Building C object CMakeFiles/experiment_b.dir/experiments/common/benchmark.c.obj
-[ 80%] Linking CXX executable experiment_b.exe
-[100%] Built target experiment_b
-[ 50%] Built target snirs_dfa
-[100%] Built target experiment_b_checks
