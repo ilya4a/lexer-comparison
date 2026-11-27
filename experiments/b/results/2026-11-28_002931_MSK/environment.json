@@ -1,0 +1,62 @@
+{
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13400F",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "logical_cpus": 16,
+  "physical_memory_bytes": 34191081472,
+  "run_id": "2026-11-28_002931_MSK",
+  "started_moscow": "2026-11-28T00:29:31.949520+03:00",
+  "c_version": "gcc.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0",
+  "cxx_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0",
+  "cmake_version": "cmake version 4.1.2",
+  "python": "3.12.9 (tags/v3.12.9:fdb8142, Feb  4 2025, 15:27:58) [MSC v.1942 64 bit (AMD64)]",
+  "configure_command": [
+    "C:\\Program Files\\CMake\\bin\\cmake.EXE",
+    "-S",
+    "C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison",
+    "-B",
+    "C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\build\\experiment_b",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DSNIRS_BUILD_GENERATED_SCANNERS=OFF",
+    "-DCMAKE_C_STANDARD=11",
+    "-DCMAKE_CXX_STANDARD=17",
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+    "-G",
+    "MinGW Makefiles",
+    "-DCMAKE_C_COMPILER=C:/Strawberry/c/bin/gcc.EXE",
+    "-DCMAKE_CXX_COMPILER=C:/Strawberry/c/bin/g++.EXE"
+  ],
+  "rounds": 16,
+  "warmups_per_variant_per_input": 1,
+  "affinity": "not pinned",
+  "priority": "normal",
+  "executable_sha256": "890cdc85db2adebeaeaafd0316bbabc0e8eb9cf7c36ce9f437654818b347a295",
+  "git_commit": "4e73cee9f5e1db229bac15191af50911d212164f",
+  "compile_commands": [
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_b",
+      "command": "C:\\Strawberry\\c\\bin\\gcc.EXE  @CMakeFiles/experiment_b.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -o CMakeFiles\\experiment_b.dir\\experiments\\b\\experiment_b.c.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\experiments\\b\\experiment_b.c",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/experiments/b/experiment_b.c",
+      "output": "CMakeFiles/experiment_b.dir/experiments/b/experiment_b.c.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_b",
+      "command": "C:\\Strawberry\\c\\bin\\gcc.EXE  @CMakeFiles/experiment_b.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -o CMakeFiles\\experiment_b.dir\\experiments\\common\\benchmark.c.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\experiments\\common\\benchmark.c",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/experiments/common/benchmark.c",
+      "output": "CMakeFiles/experiment_b.dir/experiments/common/benchmark.c.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_b",
+      "command": "C:\\Strawberry\\c\\bin\\g++.EXE  @CMakeFiles/experiment_b_checks.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\experiment_b_checks.dir\\snirs-dfa\\tests\\scanner_tests.cpp.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\snirs-dfa\\tests\\scanner_tests.cpp",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/snirs-dfa/tests/scanner_tests.cpp",
+      "output": "CMakeFiles/experiment_b_checks.dir/snirs-dfa/tests/scanner_tests.cpp.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_b/snirs-dfa",
+      "command": "C:\\Strawberry\\c\\bin\\g++.EXE  @CMakeFiles/snirs_dfa.dir/includes_CXX.rsp -O3 -DNDEBUG -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\snirs_dfa.dir\\table\\scanner_table.cpp.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\snirs-dfa\\table\\scanner_table.cpp",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/snirs-dfa/table/scanner_table.cpp",
+      "output": "snirs-dfa/CMakeFiles/snirs_dfa.dir/table/scanner_table.cpp.obj"
+    }
+  ],
+  "guide_schema_note": "experiment_results.txt is not present; CSV fields are documented in experiments/b/README.md",
+  "finished_moscow": "2026-11-28T00:29:38.661192+03:00"
+}

@@ -315,6 +315,7 @@ int main() {
         differential_inputs();
         guarded_input();
         std::cout << "Passed: " << checked_inputs << " inputs against independent reference; "
+                  << snirs_dfa::kStateCount * 256 << " state/byte pairs; "
                   << "all transitions, terminal tokens, C-compatible interface, "
                   << "independent instances, and guarded buffers.\n";
         return EXIT_SUCCESS;

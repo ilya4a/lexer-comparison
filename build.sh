@@ -8,12 +8,18 @@ case "${1:-tests}" in
         configuration=Debug
         ;;
     a)
-        target=experiment_a
-        configuration=Release
+        if command -v python3 >/dev/null 2>&1; then
+            exec python3 experiments/a/run_experiment.py --build-dir "${2:-build/experiment_a}"
+        else
+            exec python experiments/a/run_experiment.py --build-dir "${2:-build/experiment_a}"
+        fi
         ;;
     b)
-        target=experiment_b
-        configuration=Release
+        if command -v python3 >/dev/null 2>&1; then
+            exec python3 experiments/b/run_experiment.py --build-dir "${2:-build/experiment_b}"
+        else
+            exec python experiments/b/run_experiment.py --build-dir "${2:-build/experiment_b}"
+        fi
         ;;
     *)
         printf 'Usage: %s [tests|a|b] [build-dir]\n' "$0" >&2

@@ -1,0 +1,4 @@
+$ "C:\Program Files\CMake\bin\cmake.EXE" -S C:\Users\Egor\Documents\desktop\lexer-comparison -B C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_b -DCMAKE_BUILD_TYPE=Release -DSNIRS_BUILD_GENERATED_SCANNERS=OFF -DCMAKE_C_STANDARD=11 -DCMAKE_CXX_STANDARD=17 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G "MinGW Makefiles" -DCMAKE_C_COMPILER=C:/Strawberry/c/bin/gcc.EXE -DCMAKE_CXX_COMPILER=C:/Strawberry/c/bin/g++.EXE
+-- Configuring done (0.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_b

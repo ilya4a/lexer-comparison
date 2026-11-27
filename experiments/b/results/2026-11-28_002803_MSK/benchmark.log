@@ -1,0 +1,13 @@
+$ C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_b\experiment_b.exe C:\Users\Egor\Documents\desktop\lexer-comparison\build\inputs\b\manifest.tsv C:\Users\Egor\Documents\desktop\lexer-comparison\build\results\2026-11-28_002803_MSK\samples.csv C:\Users\Egor\Documents\desktop\lexer-comparison\build\results\2026-11-28_002803_MSK\validation.csv
+Timer frequency=10000000 Hz; empty interval min=0.0 ns, mean=14.7 ns (10000 pairs)
+Validated EOF + measured 16 pairs: textbook (17430 bytes, 3792 tokens, ffeec8089dd2db28)
+Validated EOF + measured 16 pairs: textbook_long (1063291 bytes, 231312 tokens, 2a0d45dd0f74067e)
+Validated EOF + measured 16 pairs: prefix_ifx (1048576 bytes, 262144 tokens, eed58bed42eb2fb7)
+Validated EOF + measured 16 pairs: prefix_abx (1048576 bytes, 262144 tokens, eed58bed42eb2fb7)
+Validated EOF + measured 16 pairs: ident_3 (1048576 bytes, 262144 tokens, eed58bed42eb2fb7)
+Validated EOF + measured 16 pairs: ident_15 (1048576 bytes, 65536 tokens, e2eab24e2c3a2fb7)
+Validated EOF + measured 16 pairs: skip_spaces (1179648 bytes, 131072 tokens, 6c25e207a1912fb7)
+Validated EOF + measured 16 pairs: skip_comments (1179648 bytes, 131072 tokens, 6c25e207a1912fb7)
+Validated EOF + measured 16 pairs: mixed_2048 (61440 bytes, 18432 tokens, ead72e995c909fb7)
+Validated EOF + measured 16 pairs: mixed_32768 (983040 bytes, 294912 tokens, 03abf87406ea2fb7)
+Validated EOF + measured 16 pairs: mixed_524288 (15728640 bytes, 4718592 tokens, 89ebc8b8fcff2fb7)

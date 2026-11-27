@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define COUNT(a) (sizeof(a) / sizeof((a)[0]))
 
@@ -68,10 +69,25 @@ static int check_examples(void)
         {TOK_IDENT, 0, 1}, {TOK_PLUS, 8, 9},
         {TOK_ERROR, 9, 10}, {TOK_ERROR, 9, 10}
     };
+    static const Token eof[] = {{TOK_EOF, 0, 0}, {TOK_EOF, 0, 0}};
+    static const Token only_if[] = {{TOK_IF, 0, 2}, {TOK_EOF, 2, 2}, {TOK_EOF, 2, 2}};
+    static const Token only_if2[] = {{TOK_IDENT, 0, 3}, {TOK_EOF, 3, 3}, {TOK_EOF, 3, 3}};
+    static const Token assignment[] = {
+        {TOK_IF, 0, 2}, {TOK_ASSIGN, 2, 4}, {TOK_NUMBER, 4, 6}, {TOK_EOF, 6, 6}, {TOK_EOF, 6, 6}
+    };
+    static const unsigned char binary_comment[] = {'/', '/', 0, 0xff};
+    static const Token comment_eof[] = {{TOK_EOF, 4, 4}, {TOK_EOF, 4, 4}};
+    static const Token invalid[] = {{TOK_ERROR, 0, 1}, {TOK_ERROR, 0, 1}};
 
     const Test tests[] = {
         {"keywords", keywords, sizeof keywords - 1, words, COUNT(words)},
         {"comment and error", comment, sizeof comment - 1, error, COUNT(error)}
+        , {"empty", NULL, 0, eof, COUNT(eof)}
+        , {"if", (const unsigned char *)"if", 2, only_if, COUNT(only_if)}
+        , {"if2", (const unsigned char *)"if2", 3, only_if2, COUNT(only_if2)}
+        , {"if:=15", (const unsigned char *)"if:=15", 6, assignment, COUNT(assignment)}
+        , {"binary comment to EOF", binary_comment, sizeof binary_comment, comment_eof, COUNT(comment_eof)}
+        , {"unknown byte", (const unsigned char *)"@", 1, invalid, COUNT(invalid)}
     };
 
     int failures = 0;
@@ -80,6 +96,28 @@ static int check_examples(void)
             failures += check(scanners[j].name, scanners[j].scanner, &tests[i]);
         }
     }
+    /* Every ordinary TokenKind is checked even if absent from the workload corpus. */
+    static const struct { const char *text; TokenKind kind; } spellings[] = {
+        {"abc123", TOK_IDENT}, {"0015", TOK_NUMBER},
+        {"if", TOK_IF}, {"then", TOK_THEN}, {"else", TOK_ELSE}, {"end", TOK_END},
+        {"while", TOK_WHILE}, {"do", TOK_DO}, {"for", TOK_FOR}, {"from", TOK_FROM},
+        {"to", TOK_TO}, {"return", TOK_RETURN}, {"case", TOK_CASE},
+        {":=", TOK_ASSIGN}, {"=", TOK_EQ}, {"!=", TOK_NE}, {"<", TOK_LT}, {"<=", TOK_LE},
+        {">", TOK_GT}, {">=", TOK_GE}, {"+", TOK_PLUS}, {"-", TOK_MINUS}, {"*", TOK_STAR},
+        {"/", TOK_SLASH}, {"(", TOK_LPAREN}, {")", TOK_RPAREN}, {"[", TOK_LBRACKET},
+        {"]", TOK_RBRACKET}, {",", TOK_COMMA}, {";", TOK_SEMI}, {":", TOK_COLON}
+    };
+    for (size_t i = 0; i < COUNT(spellings); ++i) {
+        size_t length = strlen(spellings[i].text);
+        const Token expected[] = {{spellings[i].kind, 0, length},
+                                  {TOK_EOF, length, length}, {TOK_EOF, length, length}};
+        const Test test = {spellings[i].text, (const unsigned char *)spellings[i].text,
+                           length, expected, COUNT(expected)};
+        for (size_t j = 0; j < COUNT(scanners); ++j) {
+            failures += check(scanners[j].name, scanners[j].scanner, &test);
+        }
+    }
+    printf("Checked %zu ordinary TokenKinds on each of 4 scanners, plus EOF/error cases.\n", COUNT(spellings));
     return failures != 0;
 }
 

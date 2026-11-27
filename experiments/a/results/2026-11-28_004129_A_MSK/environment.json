@@ -1,0 +1,140 @@
+{
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13400F",
+  "logical_cpus": 16,
+  "physical_memory_bytes": 34191081472,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "experiment": "A",
+  "started_moscow": "2026-11-28T00:41:29.913258+03:00",
+  "run_id": "2026-11-28_004129_A_MSK",
+  "c_version": "gcc.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0",
+  "cxx_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0",
+  "flex_version": "win_flex.exe 2.6.4",
+  "re2c_version": "re2c 4.6",
+  "cmake_version": "cmake version 4.1.2",
+  "python": "3.12.9 (tags/v3.12.9:fdb8142, Feb  4 2025, 15:27:58) [MSC v.1942 64 bit (AMD64)]",
+  "git_commit": "4e73cee9f5e1db229bac15191af50911d212164f",
+  "configure_command": [
+    "C:\\Program Files\\CMake\\bin\\cmake.EXE",
+    "-S",
+    "C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison",
+    "-B",
+    "C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\build\\experiment_a",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DSNIRS_BUILD_GENERATED_SCANNERS=ON",
+    "-DCMAKE_C_STANDARD=11",
+    "-DCMAKE_CXX_STANDARD=17",
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+    "-DFLEX_EXECUTABLE=C:/Users/Egor/Documents/desktop/lexer-comparison/build/tools/winflexbison/win_flex.exe",
+    "-DRE2C_EXECUTABLE=C:/Users/Egor/Documents/desktop/lexer-comparison/build/tools/re2c-build/re2c.exe",
+    "-DCMAKE_C_COMPILER=C:/Strawberry/c/bin/gcc.EXE",
+    "-DCMAKE_CXX_COMPILER=C:/Strawberry/c/bin/g++.EXE",
+    "-G",
+    "MinGW Makefiles"
+  ],
+  "rounds": 16,
+  "warmups": 1,
+  "orders": [
+    [
+      "flex",
+      "re2c",
+      "branch",
+      "table"
+    ],
+    [
+      "re2c",
+      "table",
+      "flex",
+      "branch"
+    ],
+    [
+      "table",
+      "branch",
+      "re2c",
+      "flex"
+    ],
+    [
+      "branch",
+      "flex",
+      "table",
+      "re2c"
+    ]
+  ],
+  "compile_commands": [
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a",
+      "command": "C:\\Strawberry\\c\\bin\\gcc.EXE -D__USE_MINGW_ANSI_STDIO=1 @CMakeFiles/scanners.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\scanners.dir\\generated\\scanner_flex.c.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\build\\experiment_a\\generated\\scanner_flex.c",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a/generated/scanner_flex.c",
+      "output": "CMakeFiles/scanners.dir/generated/scanner_flex.c.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a",
+      "command": "C:\\Strawberry\\c\\bin\\gcc.EXE -D__USE_MINGW_ANSI_STDIO=1 @CMakeFiles/scanners.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\scanners.dir\\generated\\scanner_re2c.c.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\build\\experiment_a\\generated\\scanner_re2c.c",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a/generated/scanner_re2c.c",
+      "output": "CMakeFiles/scanners.dir/generated/scanner_re2c.c.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a",
+      "command": "C:\\Strawberry\\c\\bin\\gcc.EXE -D__USE_MINGW_ANSI_STDIO=1 @CMakeFiles/scanner_tests.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -o CMakeFiles\\scanner_tests.dir\\scanner_tests.c.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\scanner_tests.c",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/scanner_tests.c",
+      "output": "CMakeFiles/scanner_tests.dir/scanner_tests.c.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a",
+      "command": "C:\\Strawberry\\c\\bin\\gcc.EXE  @CMakeFiles/experiment_a.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -o CMakeFiles\\experiment_a.dir\\experiments\\a\\experiment_a.c.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\experiments\\a\\experiment_a.c",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/experiments/a/experiment_a.c",
+      "output": "CMakeFiles/experiment_a.dir/experiments/a/experiment_a.c.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a",
+      "command": "C:\\Strawberry\\c\\bin\\gcc.EXE  @CMakeFiles/experiment_a.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -o CMakeFiles\\experiment_a.dir\\experiments\\common\\benchmark.c.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\experiments\\common\\benchmark.c",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/experiments/common/benchmark.c",
+      "output": "CMakeFiles/experiment_a.dir/experiments/common/benchmark.c.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a",
+      "command": "C:\\Strawberry\\c\\bin\\gcc.EXE  @CMakeFiles/experiment_b.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -o CMakeFiles\\experiment_b.dir\\experiments\\b\\experiment_b.c.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\experiments\\b\\experiment_b.c",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/experiments/b/experiment_b.c",
+      "output": "CMakeFiles/experiment_b.dir/experiments/b/experiment_b.c.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a",
+      "command": "C:\\Strawberry\\c\\bin\\gcc.EXE  @CMakeFiles/experiment_b.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -o CMakeFiles\\experiment_b.dir\\experiments\\common\\benchmark.c.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\experiments\\common\\benchmark.c",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/experiments/common/benchmark.c",
+      "output": "CMakeFiles/experiment_b.dir/experiments/common/benchmark.c.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a",
+      "command": "C:\\Strawberry\\c\\bin\\g++.EXE  @CMakeFiles/experiment_b_checks.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\experiment_b_checks.dir\\snirs-dfa\\tests\\scanner_tests.cpp.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\snirs-dfa\\tests\\scanner_tests.cpp",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/snirs-dfa/tests/scanner_tests.cpp",
+      "output": "CMakeFiles/experiment_b_checks.dir/snirs-dfa/tests/scanner_tests.cpp.obj"
+    },
+    {
+      "directory": "C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a/snirs-dfa",
+      "command": "C:\\Strawberry\\c\\bin\\g++.EXE  @CMakeFiles/snirs_dfa.dir/includes_CXX.rsp -O3 -DNDEBUG -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\snirs_dfa.dir\\table\\scanner_table.cpp.obj -c C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\snirs-dfa\\table\\scanner_table.cpp",
+      "file": "C:/Users/Egor/Documents/desktop/lexer-comparison/snirs-dfa/table/scanner_table.cpp",
+      "output": "snirs-dfa/CMakeFiles/snirs_dfa.dir/table/scanner_table.cpp.obj"
+    }
+  ],
+  "generator_commands": [
+    "C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\build\\tools\\winflexbison\\win_flex.exe -8 -Cf -o scanner_flex.c flex/scanner.l",
+    "C:\\Users\\Egor\\Documents\\desktop\\lexer-comparison\\build\\tools\\re2c-build\\re2c.exe -o scanner_re2c.c re2c/scanner.re"
+  ],
+  "generator_sha256": {
+    "flex": "14c3741650bf31f1fa24213eabfaf0a84806346e4b6f257d16fb99b7a7966668",
+    "re2c": "886ff48fbeeba463c7212380ee44f8c371a3c2c809d02e5e3ee4cc9395886dd3"
+  },
+  "executable_sha256": "4790bc52a45536d63c938d90136a28a80fc7aeb8b199758964ae7d8de2288f59",
+  "textbook_copies": 1,
+  "checksum": "uint64, initial=14695981039346656037; each Token including EOF: XOR kind, multiply 1099511628211, XOR begin, multiply, XOR end, multiply; mod 2^64; K excludes EOF",
+  "tool_downloads": [
+    {
+      "url": "https://github.com/lexxmark/winflexbison/releases/download/v2.5.25/win_flex_bison-2.5.25.zip",
+      "sha256": "8d324b62be33604b2c45ad1dd34ab93d722534448f55a16ca7292de32b6ac135"
+    },
+    {
+      "url": "https://github.com/skvadrik/re2c/releases/download/4.6/re2c-4.6.tar.xz",
+      "sha256": "75bf2696445e831d0d44e0d9f2909eeffc18c09757f222b2fb025f7e59fe130b"
+    }
+  ],
+  "finished_moscow": "2026-11-28T00:41:42.239290+03:00"
+}

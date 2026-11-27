@@ -1,0 +1,5 @@
+$ "C:\Program Files\CMake\bin\cmake.EXE" -S C:\Users\Egor\Documents\desktop\lexer-comparison -B C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_a -DCMAKE_BUILD_TYPE=Release -DSNIRS_BUILD_GENERATED_SCANNERS=ON -DCMAKE_C_STANDARD=11 -DCMAKE_CXX_STANDARD=17 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DFLEX_EXECUTABLE=C:/Users/Egor/Documents/desktop/lexer-comparison/build/tools/winflexbison/win_flex.exe -DRE2C_EXECUTABLE=C:/Users/Egor/Documents/desktop/lexer-comparison/build/tools/re2c-build/re2c.exe -DCMAKE_C_COMPILER=C:/Strawberry/c/bin/gcc.EXE -DCMAKE_CXX_COMPILER=C:/Strawberry/c/bin/g++.EXE -G "MinGW Makefiles"
+-- Found FLEX: C:/Users/Egor/Documents/desktop/lexer-comparison/build/tools/winflexbison/win_flex.exe (found version "2.6.4")
+-- Configuring done (0.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/Egor/Documents/desktop/lexer-comparison/build/experiment_a

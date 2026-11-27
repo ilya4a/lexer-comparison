@@ -1,16 +1,10 @@
-#include "table/scanner_table.h"
-#include <stdio.h>
+#include "benchmark.h"
 
-static void run_scanner(const Scanner *scanner)
+int main(int argc, char **argv)
 {
-    (void)scanner;
-    /* TODO: measure a full pass on the same inputs for both DFA variants. */
-}
-
-int main(void)
-{
-    run_scanner(&scanner_table);
-    run_scanner(&scanner_branch);
-    puts("Experiment B: scaffold");
-    return 0;
+    const BenchScanner variants[] = {
+        {"table", &scanner_table},
+        {"branch", &scanner_branch}
+    };
+    return benchmark_run(variants, sizeof variants / sizeof variants[0], argc, argv);
 }

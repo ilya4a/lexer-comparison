@@ -1,17 +1,13 @@
-#include "scanner.h"
-#include <stdio.h>
+#include "benchmark.h"
 
-static void run_scanner(const Scanner *scanner)
+int main(int argc, char **argv)
 {
-    (void)scanner;
-    /* TODO: measure a full pass on each prepared input. */
-}
-
-int main(void)
-{
-    run_scanner(&scanner_flex);
-    run_scanner(&scanner_re2c);
-    run_scanner(&scanner_table);
-    puts("Experiment A: scaffold");
-    return 0;
+    const BenchScanner variants[] = {
+        {"flex", &scanner_flex}, {"re2c", &scanner_re2c},
+        {"table", &scanner_table}, {"branch", &scanner_branch}
+    };
+    const size_t orders[][4] = {
+        {0, 1, 3, 2}, {1, 2, 0, 3}, {2, 3, 1, 0}, {3, 0, 2, 1}
+    };
+    return benchmark_run_ordered(variants, 4, "A", &orders[0][0], 4, argc, argv);
 }

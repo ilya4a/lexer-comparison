@@ -31,6 +31,7 @@ typedef struct {
 } Scanner;
 
 extern const Scanner scanner_table;
+extern const Scanner scanner_branch;
 extern const Scanner scanner_flex;
 extern const Scanner scanner_re2c;
 

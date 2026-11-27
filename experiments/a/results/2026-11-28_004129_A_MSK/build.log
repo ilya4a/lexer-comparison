@@ -1,0 +1,21 @@
+$ "C:\Program Files\CMake\bin\cmake.EXE" --build C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_a --config Release --target experiment_a scanner_tests experiment_b_checks --parallel 2
+[ 10%] Building CXX object snirs-dfa/CMakeFiles/snirs_dfa.dir/table/scanner_table.cpp.obj
+[ 20%] Linking CXX static library libsnirs_dfa.a
+[ 20%] Built target snirs_dfa
+[ 30%] Building C object CMakeFiles/scanners.dir/generated/scanner_flex.c.obj
+[ 40%] Building C object CMakeFiles/scanners.dir/generated/scanner_re2c.c.obj
+[ 50%] Linking CXX static library libscanners.a
+[ 70%] Built target scanners
+[ 80%] Building C object CMakeFiles/experiment_a.dir/experiments/a/experiment_a.c.obj
+[ 90%] Building C object CMakeFiles/experiment_a.dir/experiments/common/benchmark.c.obj
+[100%] Linking CXX executable experiment_a.exe
+[100%] Built target experiment_a
+[ 22%] Built target snirs_dfa
+[ 77%] Built target scanners
+[ 88%] Building C object CMakeFiles/scanner_tests.dir/scanner_tests.c.obj
+[100%] Linking CXX executable scanner_tests.exe
+[100%] Built target scanner_tests
+[ 50%] Built target snirs_dfa
+[ 75%] Building CXX object CMakeFiles/experiment_b_checks.dir/snirs-dfa/tests/scanner_tests.cpp.obj
+[100%] Linking CXX executable experiment_b_checks.exe
+[100%] Built target experiment_b_checks

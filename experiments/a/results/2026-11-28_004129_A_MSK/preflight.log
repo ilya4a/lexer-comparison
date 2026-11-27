@@ -1,0 +1,22 @@
+$ C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_a\experiment_a.exe --validate-only C:\Users\Egor\Documents\desktop\lexer-comparison\build\inputs\a\manifest.tsv C:\Users\Egor\Documents\desktop\lexer-comparison\build\results\2026-11-28_004129_A_MSK\preflight_empty.csv C:\Users\Egor\Documents\desktop\lexer-comparison\build\results\2026-11-28_004129_A_MSK\preflight_validation.csv
+Timer frequency=10000000 Hz; empty interval min=0.0 ns, mean=14.8 ns (10000 pairs)
+Validating input textbook
+Validated textbook through EOF
+Validating input prefix_ifx
+Validated prefix_ifx through EOF
+Validating input prefix_abx
+Validated prefix_abx through EOF
+Validating input ident_3
+Validated ident_3 through EOF
+Validating input ident_15
+Validated ident_15 through EOF
+Validating input skip_space
+Validated skip_space through EOF
+Validating input skip_comment
+Validated skip_comment through EOF
+Validating input size_small
+Validated size_small through EOF
+Validating input size_medium
+Validated size_medium through EOF
+Validating input size_large
+Validated size_large through EOF

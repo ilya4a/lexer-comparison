@@ -1,0 +1,79 @@
+{
+  "state_count": 61,
+  "class_count": 36,
+  "state_byte_pairs": 15616,
+  "paths": {
+    "ifx ": [
+      "Q_START",
+      "Q_KW_I",
+      "Q_KW_IF",
+      "Q_IDENT",
+      "[emit/skip; restart]",
+      "Q_SPACE"
+    ],
+    "abx ": [
+      "Q_START",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "[emit/skip; restart]",
+      "Q_SPACE"
+    ],
+    "aaa ": [
+      "Q_START",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "[emit/skip; restart]",
+      "Q_SPACE"
+    ],
+    "aaaaaaaaaaaaaaa ": [
+      "Q_START",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "Q_IDENT",
+      "[emit/skip; restart]",
+      "Q_SPACE"
+    ],
+    "x       \n": [
+      "Q_START",
+      "Q_IDENT",
+      "[emit/skip; restart]",
+      "Q_SPACE",
+      "Q_SPACE",
+      "Q_SPACE",
+      "Q_SPACE",
+      "Q_SPACE",
+      "Q_SPACE",
+      "Q_SPACE",
+      "Q_SPACE"
+    ],
+    "x//aaaaa\n": [
+      "Q_START",
+      "Q_IDENT",
+      "[emit/skip; restart]",
+      "Q_SIGN_2F",
+      "Q_COMMENT",
+      "Q_COMMENT",
+      "Q_COMMENT",
+      "Q_COMMENT",
+      "Q_COMMENT",
+      "Q_COMMENT",
+      "[emit/skip; restart]",
+      "Q_SPACE"
+    ]
+  },
+  "note": "Traces from the shared DFA description, outside timing; exhaustive equality checked by experiment_b_checks."
+}

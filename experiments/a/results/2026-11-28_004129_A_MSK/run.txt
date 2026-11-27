@@ -1,0 +1,51 @@
+status=COMPLETE
+experiment=A
+date_moscow=2026-11-28T00:41:29.913258+03:00
+variants=flex,re2c,table,branch
+clock=QueryPerformanceCounter (Windows); CLOCK_MONOTONIC (POSIX)
+warmups_per_variant_per_input=1
+rounds=16
+priority=normal; affinity=not pinned
+timed=next loop, K, checksum; excluded=open,close,copying,input I/O,validation,CSV
+format=experiment_results.txt, A variant list amended per experiment_a_guide.txt
+quartiles=linear interpolation at (n-1)*p
+checksum=uint64, initial=14695981039346656037; each Token including EOF: XOR kind, multiply 1099511628211, XOR begin, multiply, XOR end, multiply; mod 2^64; K excludes EOF
+command=C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_a\experiment_a.exe C:\Users\Egor\Documents\desktop\lexer-comparison\build\inputs\a\manifest.tsv C:\Users\Egor\Documents\desktop\lexer-comparison\build\results\2026-11-28_004129_A_MSK\measurements.csv C:\Users\Egor\Documents\desktop\lexer-comparison\build\results\2026-11-28_004129_A_MSK\validation.csv
+configure="C:\Program Files\CMake\bin\cmake.EXE" -S C:\Users\Egor\Documents\desktop\lexer-comparison -B C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_a -DCMAKE_BUILD_TYPE=Release -DSNIRS_BUILD_GENERATED_SCANNERS=ON -DCMAKE_C_STANDARD=11 -DCMAKE_CXX_STANDARD=17 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DFLEX_EXECUTABLE=C:/Users/Egor/Documents/desktop/lexer-comparison/build/tools/winflexbison/win_flex.exe -DRE2C_EXECUTABLE=C:/Users/Egor/Documents/desktop/lexer-comparison/build/tools/re2c-build/re2c.exe -DCMAKE_C_COMPILER=C:/Strawberry/c/bin/gcc.EXE -DCMAKE_CXX_COMPILER=C:/Strawberry/c/bin/g++.EXE -G "MinGW Makefiles"
+git_commit=4e73cee9f5e1db229bac15191af50911d212164f
+cpu=13th Gen Intel(R) Core(TM) i5-13400F
+platform=Windows-11-10.0.26200-SP0
+logical_cpus=16
+physical_memory_bytes=34191081472
+c_version=gcc.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0
+cxx_version=g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0
+flex_version=win_flex.exe 2.6.4
+re2c_version=re2c 4.6
+executable_sha256=4790bc52a45536d63c938d90136a28a80fc7aeb8b199758964ae7d8de2288f59
+order_1=flex,re2c,branch,table
+order_2=re2c,table,flex,branch
+order_3=table,branch,re2c,flex
+order_4=branch,flex,table,re2c
+generation=C:\Users\Egor\Documents\desktop\lexer-comparison\build\tools\winflexbison\win_flex.exe -8 -Cf -o scanner_flex.c flex/scanner.l
+generation=C:\Users\Egor\Documents\desktop\lexer-comparison\build\tools\re2c-build\re2c.exe -o scanner_re2c.c re2c/scanner.re
+compile=C:\Strawberry\c\bin\gcc.EXE -D__USE_MINGW_ANSI_STDIO=1 @CMakeFiles/scanners.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\scanners.dir\generated\scanner_flex.c.obj -c C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_a\generated\scanner_flex.c
+compile=C:\Strawberry\c\bin\gcc.EXE -D__USE_MINGW_ANSI_STDIO=1 @CMakeFiles/scanners.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\scanners.dir\generated\scanner_re2c.c.obj -c C:\Users\Egor\Documents\desktop\lexer-comparison\build\experiment_a\generated\scanner_re2c.c
+compile=C:\Strawberry\c\bin\gcc.EXE -D__USE_MINGW_ANSI_STDIO=1 @CMakeFiles/scanner_tests.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -o CMakeFiles\scanner_tests.dir\scanner_tests.c.obj -c C:\Users\Egor\Documents\desktop\lexer-comparison\scanner_tests.c
+compile=C:\Strawberry\c\bin\gcc.EXE  @CMakeFiles/experiment_a.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -o CMakeFiles\experiment_a.dir\experiments\a\experiment_a.c.obj -c C:\Users\Egor\Documents\desktop\lexer-comparison\experiments\a\experiment_a.c
+compile=C:\Strawberry\c\bin\gcc.EXE  @CMakeFiles/experiment_a.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -o CMakeFiles\experiment_a.dir\experiments\common\benchmark.c.obj -c C:\Users\Egor\Documents\desktop\lexer-comparison\experiments\common\benchmark.c
+compile=C:\Strawberry\c\bin\gcc.EXE  @CMakeFiles/experiment_b.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -o CMakeFiles\experiment_b.dir\experiments\b\experiment_b.c.obj -c C:\Users\Egor\Documents\desktop\lexer-comparison\experiments\b\experiment_b.c
+compile=C:\Strawberry\c\bin\gcc.EXE  @CMakeFiles/experiment_b.dir/includes_C.rsp -O3 -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -o CMakeFiles\experiment_b.dir\experiments\common\benchmark.c.obj -c C:\Users\Egor\Documents\desktop\lexer-comparison\experiments\common\benchmark.c
+compile=C:\Strawberry\c\bin\g++.EXE  @CMakeFiles/experiment_b_checks.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\experiment_b_checks.dir\snirs-dfa\tests\scanner_tests.cpp.obj -c C:\Users\Egor\Documents\desktop\lexer-comparison\snirs-dfa\tests\scanner_tests.cpp
+compile=C:\Strawberry\c\bin\g++.EXE  @CMakeFiles/snirs_dfa.dir/includes_CXX.rsp -O3 -DNDEBUG -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\snirs_dfa.dir\table\scanner_table.cpp.obj -c C:\Users\Egor\Documents\desktop\lexer-comparison\snirs-dfa\table\scanner_table.cpp
+input=textbook; source_in_b=textbook; N=17430; K=3792; copies=1; SHA256=f116f7067842d90dc4bd69a6d719c845347d99ce38ddd31176d9c52188da41cd; recipe=pseudocode/pseudocode.txt, unchanged
+input=prefix_ifx; source_in_b=prefix_ifx; N=1048576; K=262144; copies=262144; SHA256=739014374188bace4bcaaefa0365ce6337eb6c8175e373aab681efeba2831e38; recipe=b'ifx ' * 262144
+input=prefix_abx; source_in_b=prefix_abx; N=1048576; K=262144; copies=262144; SHA256=b455fd105edb72f332751d848e2dd55c19aa3b0600f0bec4147d38c4b190c675; recipe=b'abx ' * 262144
+input=ident_3; source_in_b=ident_3; N=1048576; K=262144; copies=262144; SHA256=969d0278bf58e5c394b960bdd4dff0c494af372d20ba657d994c9f999581f7de; recipe=b'aaa ' * 262144
+input=ident_15; source_in_b=ident_15; N=1048576; K=65536; copies=65536; SHA256=0422a5b2828cca1e262637925c8d3329752fea367a271c56a872d7075671e2a7; recipe=(b'a'*15 + b' ') * 65536
+input=skip_space; source_in_b=skip_spaces; N=1179648; K=131072; copies=131072; SHA256=60e9a7040aa58c6b5ba4b5f86691750c79ebffd1397ae77516ddd7f5d2e61c84; recipe=b'x       \n' * 131072
+input=skip_comment; source_in_b=skip_comments; N=1179648; K=131072; copies=131072; SHA256=1e51d3484af3efcd01b0c8d1ca393125507aac7745d63dd6e8408c79b985a9bf; recipe=b'x//aaaaa\n' * 131072
+input=size_small; source_in_b=mixed_2048; N=61440; K=18432; copies=2048; SHA256=b354cfc34ff2b1648f24fbe24565a6f1395e35a054e59af3f26d7dfa8fd0cdb9; recipe=b'if x:=15 then return x end if\n' * 2048
+input=size_medium; source_in_b=mixed_32768; N=983040; K=294912; copies=32768; SHA256=e08decc961d4d43508981b3600eed2f5b39786ad15a2d8ea8ef255a6ba706b63; recipe=b'if x:=15 then return x end if\n' * 32768
+input=size_large; source_in_b=mixed_524288; N=15728640; K=4718592; copies=524288; SHA256=c6e5a018d735ce2be067867763711510095be841e90e0083bb3fbb9685abcd5a; recipe=b'if x:=15 then return x end if\n' * 524288
+timer=Timer frequency=10000000 Hz; empty interval min=0.0 ns, mean=14.6 ns (10000 pairs)
+summary_rows=40; measurement_rows=640; errors=0
