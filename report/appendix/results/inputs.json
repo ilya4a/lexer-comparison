@@ -1,0 +1,425 @@
+[
+  {
+    "name": "textbook",
+    "family": "textbook",
+    "recipe": "pseudocode/pseudocode.txt",
+    "block_bytes": 17430,
+    "copies": 1,
+    "padding": 0,
+    "bytes": 17430,
+    "tokens": 3792,
+    "sha256": "f116f7067842d90dc4bd69a6d719c845347d99ce38ddd31176d9c52188da41cd",
+    "expected_sha256": "efeda0818c1e0cab200c9cebc47c404947a5581485c77a6b740fc490d5660e44",
+    "kind_counts": {
+      "TOK_ASSIGN": 141,
+      "TOK_CASE": 5,
+      "TOK_COLON": 80,
+      "TOK_COMMA": 174,
+      "TOK_DO": 63,
+      "TOK_ELSE": 19,
+      "TOK_END": 121,
+      "TOK_EQ": 63,
+      "TOK_FOR": 98,
+      "TOK_FROM": 25,
+      "TOK_GE": 1,
+      "TOK_GT": 14,
+      "TOK_IDENT": 1750,
+      "TOK_IF": 131,
+      "TOK_LBRACKET": 83,
+      "TOK_LE": 9,
+      "TOK_LPAREN": 207,
+      "TOK_LT": 4,
+      "TOK_MINUS": 25,
+      "TOK_NE": 11,
+      "TOK_NUMBER": 137,
+      "TOK_PLUS": 40,
+      "TOK_RBRACKET": 83,
+      "TOK_RETURN": 35,
+      "TOK_RPAREN": 207,
+      "TOK_SEMI": 44,
+      "TOK_SLASH": 6,
+      "TOK_STAR": 19,
+      "TOK_THEN": 76,
+      "TOK_TO": 84,
+      "TOK_WHILE": 37
+    },
+    "skip_byte_fraction": 0.4664945496270797,
+    "token_lengths": {
+      "1": 1977,
+      "2": 592,
+      "3": 336,
+      "4": 241,
+      "5": 310,
+      "6": 122,
+      "7": 60,
+      "8": 60,
+      "9": 41,
+      "10": 28,
+      "11": 3,
+      "12": 5,
+      "13": 11,
+      "14": 1,
+      "16": 3,
+      "18": 1,
+      "19": 1
+    }
+  },
+  {
+    "name": "prefix_abx",
+    "family": "prefix",
+    "recipe": "abx only",
+    "block_bytes": 4,
+    "copies": 262144,
+    "padding": 0,
+    "bytes": 1048576,
+    "tokens": 262144,
+    "sha256": "b455fd105edb72f332751d848e2dd55c19aa3b0600f0bec4147d38c4b190c675",
+    "expected_sha256": "5426ac5e4f67c68b0bb0aad4922f02919028986bafdf90b6ee26679c689b6fe3",
+    "kind_counts": {
+      "TOK_IDENT": 262144
+    },
+    "skip_byte_fraction": 0.25,
+    "token_lengths": {}
+  },
+  {
+    "name": "prefix_abx_ifx",
+    "family": "prefix",
+    "recipe": "alternating abx / ifx",
+    "block_bytes": 8,
+    "copies": 131072,
+    "padding": 0,
+    "bytes": 1048576,
+    "tokens": 262144,
+    "sha256": "5428dc668eb755b6c6f269161c767f061c4f7d7b57b2861d02a8de8848798fe5",
+    "expected_sha256": "5426ac5e4f67c68b0bb0aad4922f02919028986bafdf90b6ee26679c689b6fe3",
+    "kind_counts": {
+      "TOK_IDENT": 262144
+    },
+    "skip_byte_fraction": 0.25,
+    "token_lengths": {}
+  },
+  {
+    "name": "prefix_ifx",
+    "family": "prefix",
+    "recipe": "ifx only",
+    "block_bytes": 4,
+    "copies": 262144,
+    "padding": 0,
+    "bytes": 1048576,
+    "tokens": 262144,
+    "sha256": "739014374188bace4bcaaefa0365ce6337eb6c8175e373aab681efeba2831e38",
+    "expected_sha256": "5426ac5e4f67c68b0bb0aad4922f02919028986bafdf90b6ee26679c689b6fe3",
+    "kind_counts": {
+      "TOK_IDENT": 262144
+    },
+    "skip_byte_fraction": 0.25,
+    "token_lengths": {}
+  },
+  {
+    "name": "prefix_abcde2",
+    "family": "prefix",
+    "recipe": "abcde2 only",
+    "block_bytes": 7,
+    "copies": 149796,
+    "padding": 0,
+    "bytes": 1048572,
+    "tokens": 149796,
+    "sha256": "60657317b74eaf023a630095c75da2b8d3c6d67fdc3e5e1c4b7e2fa6963e9d9f",
+    "expected_sha256": "bbecd4d10a94a96da704e1c4171e3ab3044f5b4a3531d59ed0e493ef3ea3f99e",
+    "kind_counts": {
+      "TOK_IDENT": 149796
+    },
+    "skip_byte_fraction": 0.1428571428571429,
+    "token_lengths": {}
+  },
+  {
+    "name": "prefix_while2",
+    "family": "prefix",
+    "recipe": "while2 only",
+    "block_bytes": 7,
+    "copies": 149796,
+    "padding": 0,
+    "bytes": 1048572,
+    "tokens": 149796,
+    "sha256": "819111708dcc304d6e490fc7a07928a66a0423b5e8596b8c41da561cf3fea6f4",
+    "expected_sha256": "bbecd4d10a94a96da704e1c4171e3ab3044f5b4a3531d59ed0e493ef3ea3f99e",
+    "kind_counts": {
+      "TOK_IDENT": 149796
+    },
+    "skip_byte_fraction": 0.1428571428571429,
+    "token_lengths": {}
+  },
+  {
+    "name": "ident_2",
+    "family": "length",
+    "recipe": "2 copies of a and one space per block",
+    "block_bytes": 3,
+    "copies": 349525,
+    "padding": 1,
+    "bytes": 1048576,
+    "tokens": 349525,
+    "sha256": "7439f0acd43f6b2d4492ef523d211cca99318f8e71c460147e4bf3f0a22641e8",
+    "expected_sha256": "7f85b9ebe8f27f79e5f8a132ab5af4c6fd5c70399970b60b3803d1b55e3a6d2c",
+    "kind_counts": {
+      "TOK_IDENT": 349525
+    },
+    "skip_byte_fraction": 0.33333396911621094,
+    "token_lengths": {}
+  },
+  {
+    "name": "ident_8",
+    "family": "length",
+    "recipe": "8 copies of a and one space per block",
+    "block_bytes": 9,
+    "copies": 116508,
+    "padding": 4,
+    "bytes": 1048576,
+    "tokens": 116508,
+    "sha256": "653daac7fbf4a03ddd703a48fb5c5db514c5bfd60fb8ad998b0de9512cf83edb",
+    "expected_sha256": "17efad31baa93adeb3847fe84859edc4e1ed3a7b6316f0263be4cce26b7f834b",
+    "kind_counts": {
+      "TOK_IDENT": 116508
+    },
+    "skip_byte_fraction": 0.111114501953125,
+    "token_lengths": {}
+  },
+  {
+    "name": "ident_32",
+    "family": "length",
+    "recipe": "32 copies of a and one space per block",
+    "block_bytes": 33,
+    "copies": 31775,
+    "padding": 1,
+    "bytes": 1048576,
+    "tokens": 31775,
+    "sha256": "f8f98f983baacb62b71303ad5b546994ab9c0167056d1ef31cf61cd5aa8132de",
+    "expected_sha256": "b9fbc17746cf7c260661f14a66703deb5f3a1dc92fad8dfa3e49127eb03786af",
+    "kind_counts": {
+      "TOK_IDENT": 31775
+    },
+    "skip_byte_fraction": 0.030303955078125,
+    "token_lengths": {}
+  },
+  {
+    "name": "ident_128",
+    "family": "length",
+    "recipe": "128 copies of a and one space per block",
+    "block_bytes": 129,
+    "copies": 8128,
+    "padding": 64,
+    "bytes": 1048576,
+    "tokens": 8128,
+    "sha256": "25b900080fa04c500f40bf4a219c6425e6b8a15361da9dc42b3e4ca9cab0495d",
+    "expected_sha256": "936e60381969f3c448117c9590cb8a9ad16608881c3c84559d8272d4a3da1d3a",
+    "kind_counts": {
+      "TOK_IDENT": 8128
+    },
+    "skip_byte_fraction": 0.0078125,
+    "token_lengths": {}
+  },
+  {
+    "name": "number_2",
+    "family": "length",
+    "recipe": "2 copies of 1 and one space per block",
+    "block_bytes": 3,
+    "copies": 349525,
+    "padding": 1,
+    "bytes": 1048576,
+    "tokens": 349525,
+    "sha256": "ef4b1efc29914390ec31c09bbfea21db816046ebd423a5c514a3d2cca039ee42",
+    "expected_sha256": "29657f8d733fcb786a09de2d8d3471c2ec48463eb2a710c3b8122e8c4d624746",
+    "kind_counts": {
+      "TOK_NUMBER": 349525
+    },
+    "skip_byte_fraction": 0.33333396911621094,
+    "token_lengths": {}
+  },
+  {
+    "name": "number_8",
+    "family": "length",
+    "recipe": "8 copies of 1 and one space per block",
+    "block_bytes": 9,
+    "copies": 116508,
+    "padding": 4,
+    "bytes": 1048576,
+    "tokens": 116508,
+    "sha256": "572b32682c8222f4e705eaa65adf85c7f3db4bacf1686ea6ad3ad6cf8245cc8a",
+    "expected_sha256": "5d9d823a34b66d55fbcdd18ad836cfe07699fc835b5be4f5016cca37c17f3447",
+    "kind_counts": {
+      "TOK_NUMBER": 116508
+    },
+    "skip_byte_fraction": 0.111114501953125,
+    "token_lengths": {}
+  },
+  {
+    "name": "number_32",
+    "family": "length",
+    "recipe": "32 copies of 1 and one space per block",
+    "block_bytes": 33,
+    "copies": 31775,
+    "padding": 1,
+    "bytes": 1048576,
+    "tokens": 31775,
+    "sha256": "5d6bf08b67a04d0ea0d29778526490c371ab2e900509eea83f13b92b7af9471f",
+    "expected_sha256": "a73992eaacc9a8aa1ff68acce506ab21ef1b289b2166594c658422d208f0c1db",
+    "kind_counts": {
+      "TOK_NUMBER": 31775
+    },
+    "skip_byte_fraction": 0.030303955078125,
+    "token_lengths": {}
+  },
+  {
+    "name": "number_128",
+    "family": "length",
+    "recipe": "128 copies of 1 and one space per block",
+    "block_bytes": 129,
+    "copies": 8128,
+    "padding": 64,
+    "bytes": 1048576,
+    "tokens": 8128,
+    "sha256": "604e28af16729fad33c60f94c918025add1ce5aa6a2aa09e438b4918184dfd07",
+    "expected_sha256": "2dd7d68deae72c4308742c2cdb2dd6f2372d7e80dcfce9c69d37221b927b41a1",
+    "kind_counts": {
+      "TOK_NUMBER": 8128
+    },
+    "skip_byte_fraction": 0.0078125,
+    "token_lengths": {}
+  },
+  {
+    "name": "skip_spaces",
+    "family": "skip",
+    "recipe": "x + seven spaces + LF",
+    "block_bytes": 9,
+    "copies": 131072,
+    "padding": 0,
+    "bytes": 1179648,
+    "tokens": 131072,
+    "sha256": "60e9a7040aa58c6b5ba4b5f86691750c79ebffd1397ae77516ddd7f5d2e61c84",
+    "expected_sha256": "e3300e183d8e93f810f1c5063dff4aa3c315d32f75677fded978235bb6d39fc7",
+    "kind_counts": {
+      "TOK_IDENT": 131072
+    },
+    "skip_byte_fraction": 0.8888888888888888,
+    "token_lengths": {}
+  },
+  {
+    "name": "skip_half",
+    "family": "skip",
+    "recipe": "alternating space and comment blocks",
+    "block_bytes": 18,
+    "copies": 65536,
+    "padding": 0,
+    "bytes": 1179648,
+    "tokens": 131072,
+    "sha256": "4d43f7b7b50ce47e94dab7f95bc66c24500665cfa3da76b916e4ff02369f9c8b",
+    "expected_sha256": "e3300e183d8e93f810f1c5063dff4aa3c315d32f75677fded978235bb6d39fc7",
+    "kind_counts": {
+      "TOK_IDENT": 131072
+    },
+    "skip_byte_fraction": 0.8888888888888888,
+    "token_lengths": {}
+  },
+  {
+    "name": "skip_comments",
+    "family": "skip",
+    "recipe": "x + //aaaaa + LF",
+    "block_bytes": 9,
+    "copies": 131072,
+    "padding": 0,
+    "bytes": 1179648,
+    "tokens": 131072,
+    "sha256": "1e51d3484af3efcd01b0c8d1ca393125507aac7745d63dd6e8408c79b985a9bf",
+    "expected_sha256": "e3300e183d8e93f810f1c5063dff4aa3c315d32f75677fded978235bb6d39fc7",
+    "kind_counts": {
+      "TOK_IDENT": 131072
+    },
+    "skip_byte_fraction": 0.8888888888888888,
+    "token_lengths": {}
+  },
+  {
+    "name": "skip_long_comments",
+    "family": "skip",
+    "recipe": "one long comment per 64 identifiers",
+    "block_bytes": 576,
+    "copies": 2048,
+    "padding": 0,
+    "bytes": 1179648,
+    "tokens": 131072,
+    "sha256": "8f667e6d22eb1e538d45366caa57ccb63b3c8ac15276dce030fa56e91aa0081a",
+    "expected_sha256": "0393f04111d6966244b207f98029e0f401540b7929275f7b4a4d08db67efd3a0",
+    "kind_counts": {
+      "TOK_IDENT": 131072
+    },
+    "skip_byte_fraction": 0.8888888888888888,
+    "token_lengths": {}
+  },
+  {
+    "name": "mixed_2048",
+    "family": "size",
+    "recipe": "if x:=15 then return x end if + LF",
+    "block_bytes": 30,
+    "copies": 2048,
+    "padding": 0,
+    "bytes": 61440,
+    "tokens": 18432,
+    "sha256": "b354cfc34ff2b1648f24fbe24565a6f1395e35a054e59af3f26d7dfa8fd0cdb9",
+    "expected_sha256": "fd857e1bc36231c1b7766aeccfa1ece419f73489340809ea8397a38267dada92",
+    "kind_counts": {
+      "TOK_ASSIGN": 2048,
+      "TOK_END": 2048,
+      "TOK_IDENT": 4096,
+      "TOK_IF": 4096,
+      "TOK_NUMBER": 2048,
+      "TOK_RETURN": 2048,
+      "TOK_THEN": 2048
+    },
+    "skip_byte_fraction": 0.23333333333333328,
+    "token_lengths": {}
+  },
+  {
+    "name": "mixed_32768",
+    "family": "size",
+    "recipe": "if x:=15 then return x end if + LF",
+    "block_bytes": 30,
+    "copies": 32768,
+    "padding": 0,
+    "bytes": 983040,
+    "tokens": 294912,
+    "sha256": "e08decc961d4d43508981b3600eed2f5b39786ad15a2d8ea8ef255a6ba706b63",
+    "expected_sha256": "f462935cba4605a3a6da58f7b90a0891b70e6fd013c8f3427c9e553c11181a0d",
+    "kind_counts": {
+      "TOK_ASSIGN": 32768,
+      "TOK_END": 32768,
+      "TOK_IDENT": 65536,
+      "TOK_IF": 65536,
+      "TOK_NUMBER": 32768,
+      "TOK_RETURN": 32768,
+      "TOK_THEN": 32768
+    },
+    "skip_byte_fraction": 0.23333333333333328,
+    "token_lengths": {}
+  },
+  {
+    "name": "mixed_524288",
+    "family": "size",
+    "recipe": "if x:=15 then return x end if + LF",
+    "block_bytes": 30,
+    "copies": 524288,
+    "padding": 0,
+    "bytes": 15728640,
+    "tokens": 4718592,
+    "sha256": "c6e5a018d735ce2be067867763711510095be841e90e0083bb3fbb9685abcd5a",
+    "expected_sha256": "3fd9c8d9386ab2e1f0c2558679c13b4de1152f1e3c55452fbb932e178ee6f07e",
+    "kind_counts": {
+      "TOK_ASSIGN": 524288,
+      "TOK_END": 524288,
+      "TOK_IDENT": 1048576,
+      "TOK_IF": 1048576,
+      "TOK_NUMBER": 524288,
+      "TOK_RETURN": 524288,
+      "TOK_THEN": 524288
+    },
+    "skip_byte_fraction": 0.23333333333333328,
+    "token_lengths": {}
+  }
+]
